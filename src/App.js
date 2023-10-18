@@ -1,7 +1,13 @@
-import "./App.css";
+import AdviceContainer from "./Components/AdviceContainer";
+import Footer from "./Components/Footer";
 
 function App() {
-  return <h1> Hello World</h1>;
+  return (
+    <>
+      <AdviceContainer />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
