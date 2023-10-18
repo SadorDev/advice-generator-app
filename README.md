@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Frontend Mentor - Advice generator app solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Advice generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Generate a new piece of advice by clicking the dice icon
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+![Advice-app](advice-generator-app/src/images/Screenshots/Advice-App.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## My process
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- [React](https://reactjs.org/) - JS library
+- [Tailwind CSS](https://tailwindcss.com/) - Utility First CSS Framework
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In trying to render the advice number in my UI (Advice #), I initially set my useEffect to:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```javascript
+useEffect(() => {
+    fetch("https://api.adviceslip.com/advice")
+      .then((response) => response.json())
+      .then((advice) => {
+        setAdvice(advice.slip.advice);
+```
+I eventually realised I was losing the id because I was setting the state to the inner advice key:value from my response. I reached out to the reactiflux Discord community
+and was corrected to use
 
-## Learn More
+```javascript
+setAdvice(advice.slip);
+```
+instead of 
+```javascript
+setAdvice(advice.slip.advice);
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+By doing this, I figured this would set advice to my initial state which I have as 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+const [advice, setAdvice] = useState({ id: null, advice: "" });
+```
 
-### Code Splitting
+A good friend of mine explained that my initial state should be set to, after I initally set it to an empty string. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```javascript
+{ id: null, advice: "" }
+```
 
-### Analyzing the Bundle Size
+It was important that I undersood this as in my console, I could see that each advice had an id and advice.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Continued development
 
-### Making a Progressive Web App
+I wanted to have a go at this project as I am currently going through Jonas Schmedtmann's React course. Its a brillant course and I do recommend it. After going through a section of the course that goes through Data Fetching and effects, I wanted to test my understanding by building this project. Of course, I still feel there's more to learn and I will do so but I can feel my understanding of effects and data fetching has gotten better.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I wanted to use Tailwind as I felt it would it give me good practice to get a feel of it.
+I'd been using CSS for sometime and felt it was the right time to use Tailwind.
+My main resource was the Tailwind Docs.
 
-### Advanced Configuration
+### Useful resources
+- [How to use the Fetch API with React?](https://rapidapi.com/guides/fetch-api-react) - I initially read this article to understand how to fetch my data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- [How to Fetch Data using API in React](https://www.guvi.in/blog/how-to-fetch-data-using-api-in-react/) - This helped me in helping me fetch the data using the useEffect hook. I initially used the fetch method in my hook which caused confusion for when I wanted to use the onClick handler. I realised I could create a fetch callback function to fetch and store the data. I did so by simply moving my fetch data into my handleGetAdvice function, then calling it in my useEffect
 
-### Deployment
+- [Tailwind Installation](https://tailwindcss.com/docs/installation) - Setting Up Tailwind
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [Tailwind Responsiveness](https://tailwindcss.com/docs/responsive-design) - Responsive Design
 
-### `npm run build` fails to minify
+- [Tailwind Flex](https://tailwindcss.com/docs/flex) - Flex
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Tailwind Min-Height](https://tailwindcss.com/docs/min-height#setting-the-minimum-height) - Min:Height
+
+## Acknowledgments
+
+@ReactiFlux Discord 
+@MrBimWilliams
