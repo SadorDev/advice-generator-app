@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Advice-app](advice-generator-app\src\images\Screenshots\Advice-App.png)
+![Advice-app](../advice-generator-app/src/images/Screenshots/Advice-App.png)
 
 ### Links
 
