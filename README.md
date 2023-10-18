@@ -37,7 +37,6 @@ Users should be able to:
 ## My process
 
 ### Built with
-
 - [React](https://reactjs.org/) - JS library
 - [Tailwind CSS](https://tailwindcss.com/) - Utility First CSS Framework
 
@@ -81,9 +80,11 @@ It was important that I undersood this as in my console, I could see that each a
 
 I wanted to have a go at this project as I am currently going through Jonas Schmedtmann's React course. Its a brillant course and I do recommend it. After going through a section of the course that goes through Data Fetching and effects, I wanted to test my understanding by building this project. Of course, I still feel there's more to learn and I will do so but I can feel my understanding of effects and data fetching has gotten better.
 
-I wanted to use Tailwind as I felt it would it give me good practice to get a feel of it.
+I wanted to use Tailwind as I felt it would be a good time to get a feel of it.
 I'd been using CSS for sometime and felt it was the right time to use Tailwind.
-My main resource was the Tailwind Docs.
+My main resource was the Tailwind Docs. 
+
+I will continue to learn React in order to grasp the fundamentals 
 
 ### Useful resources
 - [How to use the Fetch API with React?](https://rapidapi.com/guides/fetch-api-react) - I initially read this article to understand how to fetch my data
@@ -100,5 +101,6 @@ My main resource was the Tailwind Docs.
 
 ## Acknowledgments
 
-@ReactiFlux Discord 
-@MrBimWilliams
+- @ReactiFlux Discord Community
+- @MrBimWilliams
+- @Jonas Schmedtmann
